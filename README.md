@@ -6,14 +6,14 @@
 
 ## Team Members
 
-Anne Peng
 Katarzyna Mazur
+Anne Peng
 
 ***
 
 ## Project Description
 
-This is a Horospcope & Fortune Teller.  A user needs to enter their birthday and the program will return their horoscope for a given day. 
+This is a horoscope fortune teller.  The user enters their birthday and the program will return their fortune for the current day based on their horoscope sign.
 
 ***    
 
@@ -30,11 +30,12 @@ This is a Horospcope & Fortune Teller.  A user needs to enter their birthday and
 ## Program Design
 
 ### Features
-1. Must have: field to enter birthday, a csubmit button, play again button, quit button.
-2. Nice Have: A list of question a user can ask.
-3. << Feature 3 >>
-4. << Feature 4 >>
-5. << Feature 5 >>
+1. Some input method for the user's birthday
+2. Calculation to determine the user's zodiac sign
+3. Requests to a horoscope API
+4. Displays the user's fortune for the day
+5. Play again button
+6. (Nice to Have) The user can change the date of the fortune
 
 ### Classes
 
