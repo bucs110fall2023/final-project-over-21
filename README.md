@@ -6,8 +6,7 @@
 
 ## Team Members
 
-Katarzyna Mazur
-Anne Peng
+Katarzyna Mazur, Anne Peng
 
 ***
 
