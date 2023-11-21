@@ -38,11 +38,11 @@ This is a horoscope fortune teller.  The user enters their birthday and the prog
 
 ### Classes
 
-- << You should have a list of each of your classes with a description >>
-- 1. User class
-- 2. Proxy class
-- 3. Button class
-- 4. Controller class
+ << You should have a list of each of your classes with a description >>
+1. User class
+2. Proxy class
+3. Button class
+4. Controller class
 
 ## ATP
 
