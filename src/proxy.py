@@ -1,4 +1,10 @@
+#from user import User
+
 class Proxy():
+    
+    def __init__(self):
+        pass
+
     '''
     This class is to determine Zodiac sign based on
     the user's input and to make the API call to 
@@ -22,56 +28,59 @@ class Proxy():
     # Pisces (February 19-March 20) 
 
    
-    month = (input("What's your birthday month (january, february,.): "))
-    day = int(input("What's your birthday day: "))
+    # month = (input("What's your birthday month (january, february,.): "))
+    # day = int(input("What's your birthday day: "))
 
 
-    def zodiac_sign(day, month): 
+    # def zodiac_sign(day, month): 
       
     # checks month and date within the valid range 
     # of a specified zodiac 
     # credit https://www.geeksforgeeks.org/program-display-astrological-sign-zodiac-sign-given-date-birth/
-        if month == 'december': 
-            astro_sign = 'Sagittarius' if (day < 22) else 'capricorn'
+#         if month == 'december': 
+#             astro_sign = 'Sagittarius' if (day < 22) else 'capricorn'
             
-        elif month == 'january': 
-            astro_sign = 'Capricorn' if (day < 20) else 'aquarius'
+#         elif month == 'january': 
+#             astro_sign = 'Capricorn' if (day < 20) else 'aquarius'
             
-        elif month == 'february': 
-            astro_sign = 'Aquarius' if (day < 19) else 'pisces'
+#         elif month == 'february': 
+#             astro_sign = 'Aquarius' if (day < 19) else 'pisces'
             
-        elif month == 'march': 
-            astro_sign = 'Pisces' if (day < 21) else 'aries'
+#         elif month == 'march': 
+#             astro_sign = 'Pisces' if (day < 21) else 'aries'
             
-        elif month == 'april': 
-            astro_sign = 'Aries' if (day < 20) else 'taurus'
+#         elif month == 'april': 
+#             astro_sign = 'Aries' if (day < 20) else 'taurus'
             
-        elif month == 'may': 
-            astro_sign = 'Taurus' if (day < 21) else 'gemini'
+#         elif month == 'may': 
+#             astro_sign = 'Taurus' if (day < 21) else 'gemini'
             
-        elif month == 'june': 
-            astro_sign = 'Gemini' if (day < 21) else 'cancer'
+#         elif month == 'june': 
+#             astro_sign = 'Gemini' if (day < 21) else 'cancer'
             
-        elif month == 'july': 
-            astro_sign = 'Cancer' if (day < 23) else 'leo'
+#         elif month == 'july': 
+#             astro_sign = 'Cancer' if (day < 23) else 'leo'
             
-        elif month == 'august': 
-            astro_sign = 'Leo' if (day < 23) else 'virgo'
+#         elif month == 'august': 
+#             astro_sign = 'Leo' if (day < 23) else 'virgo'
             
-        elif month == 'september': 
-            astro_sign = 'Virgo' if (day < 23) else 'libra'
+#         elif month == 'september': 
+#             astro_sign = 'Virgo' if (day < 23) else 'libra'
             
-        elif month == 'october': 
-            astro_sign = 'Libra' if (day < 23) else 'scorpio'
+#         elif month == 'october': 
+#             astro_sign = 'Libra' if (day < 23) else 'scorpio'
             
-        elif month == 'november': 
-            astro_sign = 'scorpio' if (day < 22) else 'sagittarius'
+#         elif month == 'november': 
+#             astro_sign = 'scorpio' if (day < 22) else 'sagittarius'
          
-        print("Your Zodiac sign is: " + astro_sign) 
-        return astro_sign
+#         print("Your Zodiac sign is: " + astro_sign) 
+#         return astro_sign
       
-# Driver code  
-    if __name__ == '__main__': 
-        # day = 19
-        # month = "may"
-        zodiac_sign(day, month) 
+# # # Driver code  
+#     if __name__ == '__main__': 
+#         # day = 19
+#         # month = "may"
+#         zodiac_sign(day, month) 
+   
+
+ 
