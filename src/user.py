@@ -1,18 +1,16 @@
 class User():
     '''
     The class is to collect user's information
+    and to determine Zodiac sign based on
+    the user's input 
     '''
+    
     def __init__(self):
-       pass
-    '''
-    This class is to determine Zodiac sign based on
-    the user's input and to make the API call to 
-    get the horoscope for user
-    '''
-    
-    # Takes user's input to see what 
-    # Zodiac sign the person is:
-    
+        
+        self.month = (input("What's your birthday month (january, february,.): "))
+        self.day = int(input("What's your birthday day: "))
+      
+
     # Aries (March 21-April 19)
     # Taurus (April 20-May 20)
     # Gemini (May 21-June 20)
@@ -26,16 +24,19 @@ class User():
     # Aquarius (January 20-February 18)
     # Pisces (February 19-March 20) 
 
-   
-    month = (input("What's your birthday month (january, february,.): "))
-    day = int(input("What's your birthday day: "))
 
-
-    def zodiac_sign(day, month): 
-      
-    # checks month and date within the valid range 
-    # of a specified zodiac 
-    # credit https://www.geeksforgeeks.org/program-display-astrological-sign-zodiac-sign-given-date-birth/
+    def zodiac_sign(self): 
+        '''
+        Takes user's input to see what Zodiak
+        sign the person is
+        '''
+        
+        day = self.day
+        month = self.month
+        
+        # I will put credit in README later
+        # credit https://www.geeksforgeeks.org/program-display-astrological-sign-zodiac-sign-given-date-birth/
+        
         if month == 'december': 
             astro_sign = 'Sagittarius' if (day < 22) else 'capricorn'
             
@@ -72,9 +73,12 @@ class User():
         elif month == 'november': 
             astro_sign = 'scorpio' if (day < 22) else 'sagittarius'
          
-        print("Your Zodiac sign is: " + astro_sign) 
-        return astro_sign
+        print("Your Zodiac sign is: " + astro_sign)
+        my_sign = astro_sign 
+        return my_sign
       
 # Driver code  
     if __name__ == '__main__': 
+        # day = 19
+        # month = "may"
         zodiac_sign(day, month) 
