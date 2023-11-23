@@ -81,4 +81,4 @@ class User():
     if __name__ == '__main__': 
         # day = 19
         # month = "may"
-        zodiac_sign(day, month) 
+        zodiac_sign() 
