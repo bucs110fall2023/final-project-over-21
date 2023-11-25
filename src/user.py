@@ -1,4 +1,4 @@
-class User:
+class User():
     '''
     The class is to collect user's information
     and to determine Zodiac sign based on
@@ -40,7 +40,7 @@ class User:
         
         # I will put credit in README later
         # credit https://www.geeksforgeeks.org/program-display-astrological-sign-zodiac-sign-given-date-birth/
-        astro_sign = "foo"
+        # astro_sign = "foo"
         #print(month)
         
         if month == 'december': 
