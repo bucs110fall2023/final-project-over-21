@@ -1,16 +1,20 @@
-class User():
+class User:
     '''
     The class is to collect user's information
     and to determine Zodiac sign based on
     the user's input 
     '''
     
-    def __init__(self):
+    #def __init__(self):
         
-        self.month = (input("What's your birthday month (january, february,.): "))
-        self.day = int(input("What's your birthday day: "))
+    # self.month = (input("What's your birthday month (january, february,.): "))
+    # self.day = int(input("What's your birthday day: "))
       
-
+    def __init__(self, month,day):
+        self.day = day
+        self.month = month
+        
+    
     # Aries (March 21-April 19)
     # Taurus (April 20-May 20)
     # Gemini (May 21-June 20)
@@ -36,6 +40,8 @@ class User():
         
         # I will put credit in README later
         # credit https://www.geeksforgeeks.org/program-display-astrological-sign-zodiac-sign-given-date-birth/
+        astro_sign = "foo"
+        #print(month)
         
         if month == 'december': 
             astro_sign = 'Sagittarius' if (day < 22) else 'capricorn'
@@ -74,11 +80,10 @@ class User():
             astro_sign = 'scorpio' if (day < 22) else 'sagittarius'
          
         print("Your Zodiac sign is: " + astro_sign)
-        my_sign = astro_sign 
-        return my_sign
-      
+        return astro_sign
+#user = User()      
 # Driver code  
-    if __name__ == '__main__': 
-        # day = 19
-        # month = "may"
-        zodiac_sign() 
+#if __name__ == '__main__': 
+    # day = 19
+    # month = "may"
+#    user.zodiac_sign()
