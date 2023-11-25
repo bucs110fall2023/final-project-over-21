@@ -1,7 +1,6 @@
 from src.user import User
-from src.proxy import Proxy
-#from proxy import Proxy
-#from button import Button
+#from src.proxy import Proxy
+
 import pygame
 
 class Controller:
@@ -9,11 +8,18 @@ class Controller:
     To control the program
     '''
     def __init__(self):
-        #screen = pygame.display.get_mode()
         pass
+        # screen = pygame.display.set_mode()
+        # screen.fill("pink")
+
         
+        # font = pygame.font.Font(None, 35)
+        # text = font.render("Enter your birthday month, day to display your Zodiac info: ", True, "black")
+        # screen.blit(text, (100, 100))
+        # pygame.display.flip()
 
     def get_user(self):
+        
         month = (input("What's your birthday month (january, february,.): "))
         day = int(input("What's your birthday day: "))
         #print(month,day)
@@ -32,7 +38,7 @@ class Controller:
         print("checkpoint 2")
         print(z)
         print("checkpoint 3")
-        # p = Proxy()
+        # p = Proxy
         # info = p.get_sign_info(z)
         # return info
 
