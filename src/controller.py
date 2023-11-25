@@ -1,4 +1,5 @@
 from src.user import User
+from src.proxy import Proxy
 #from proxy import Proxy
 #from button import Button
 import pygame
@@ -31,11 +32,12 @@ class Controller:
         print("checkpoint 2")
         print(z)
         print("checkpoint 3")
+        # p = Proxy()
+        # info = p.get_sign_info(z)
+        # return info
 
 #Controller.mainloop()
 
 # in a method in Controller class
-# need to create User object before
 # p = Proxy()
 # horo = p.get_horo()
-# a = user.zodiac_sign() 
