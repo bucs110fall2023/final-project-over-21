@@ -1,4 +1,3 @@
-
 import requests
 
 class Proxy:
@@ -10,12 +9,12 @@ class Proxy:
         self.url = "https://horoscope-astrology.p.rapidapi.com/sign"
         
 
-    def get_sign_info(self,z):
+    def get_sign_info(self, users_sign):
         #self.z = z
-        querystring = {"s":"z"}
+        querystring = {"s": users_sign}
 
         headers = {
-        "X-RapidAPI-Key": ,
+        "X-RapidAPI-Key": "4c0a3b9861mshb444707240507efp14c2e1jsnc99b8d23906a",
         "X-RapidAPI-Host": "horoscope-astrology.p.rapidapi.com"
         }
         response = requests.get(self.url, headers=headers, params=querystring)
@@ -24,7 +23,6 @@ class Proxy:
         print(response.json())
         # return facts
         
-
-
-    #astro_sign = User(month,day)
-    
+# Testing API requests with the get_sign_info() method
+# proxy = Proxy()
+# proxy.get_sign_info("cancer")
