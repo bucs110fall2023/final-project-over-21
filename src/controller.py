@@ -23,7 +23,17 @@ class Controller:
 
     def get_birthday(self):
         month = (input("What's your birthday month (january, february, etc.): "))
+        month_list = ["january", "february", "march", "april", "may", "june","july", "august", "september", "october", "november", "december"]
+        while month not in month_list :
+                print("You were supposed to enter the name of one of the 12 months. Try again:")
+                month = (input("What's your birthday month (january, february, etc.): "))
         day = int(input("What's your birthday day: "))
+        
+        # #day_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ,16, 17, 18, 19, 20, 21, 22, 23,24, 25, 26, 27, 28, 29, 30,31]
+        # while day not in day_list:
+        #     print ("Your input needs to be an intiger betwen 1 and 31.")
+        #     day = int(input("What's your birthday day (number between and 31): "))
+            
         print(month, day)
         return month, day
     
@@ -43,7 +53,7 @@ class Controller:
         proxy = Proxy()
         sign_info = proxy.get_sign_info(user_zodiac)
         print(sign_info)
-        # return sign_info
+        return sign_info
 
 # Testing the mainloop() method; when testing only controller.py need to remove src. from the imports
 # controller = Controller()
