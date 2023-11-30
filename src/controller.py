@@ -23,6 +23,7 @@ class Controller:
 
     def get_birthday(self):
         month = (input("What's your birthday month (january, february, etc.): "))
+        # testing the entry if it is name of a month
         month_list = ["january", "february", "march", "april", "may", "june","july", "august", "september", "october", "november", "december"]
         while month not in month_list :
                 print("You were supposed to enter the name of one of the 12 months. Try again:")
