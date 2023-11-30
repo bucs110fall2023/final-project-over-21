@@ -20,8 +20,6 @@ class Controller:
         text = font.render("Enter your birthday month, day to display your Zodiac info: ", True, "black")
         screen.blit(text, (100, 100))
         pygame.display.flip()
-        
-    # testing
 
     def get_birthday(self):
         month = (input("What's your birthday month (january, february, etc.): "))
