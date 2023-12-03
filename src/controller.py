@@ -1,7 +1,9 @@
 import pygame
-from src.user import User
-from src.proxy import Proxy
+#from src.user import User
+#from src.proxy import Proxy
+#from src.data import Data
 import sys
+pygame.init()
 
 # For testing mainloop() method within controller.py
 # from user import User
@@ -13,7 +15,7 @@ class Controller:
     To control the program
     '''
     def __init__(self):
-        pass
+        
         screen = pygame.display.set_mode()
         screen.fill("pink")
         
@@ -21,7 +23,33 @@ class Controller:
         text = font.render("Enter your birthday month, day to display your Zodiac info: ", True, "black")
         screen.blit(text, (100, 100))
         pygame.display.flip()
-       
+        pygame.time.wait(1500)
+        
+     
+    # def mainloop(self):
+    #     while True:
+    #         if self.STATE == "start":
+    #             self.startloop()
+    #         elif self.STATE == "Data":
+    #             user_input = Data()
+    #             user_input.draw_data_boxes()
+    #         elif self.STATE == "Display":
+    #             self.displayloop()
+                
+    # def startloop(self):
+    
+    #     while self.STATE == "Start":
+    #         for event in pygame.event.get():
+    #             if event.type == pygame.QUIT:
+    #                 pygame.quit()
+    #             if event.type == pygame.KEYDOWN:
+    #                 if event.key == pygame.K_RETURN:
+    #                     self.STATE = "Data"
+            
+    #         self.screen.fill((0,0,0))
+    #         self.screen.blit("welcome", (140,150))
+    #         pygame.display.flip()            
+        
     def get_birthday(self):
         month = (input("What's your birthday month (january, february, etc.): "))
         # testing the entry if it is name of a month
