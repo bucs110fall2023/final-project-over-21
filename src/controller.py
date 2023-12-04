@@ -20,11 +20,8 @@ class Controller:
         self.screen.fill("pink")
 
         self.state = "START"
-
-        self.menu = pygame_menu.Menu("Read your horoscope for today", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
-        # The method set_state() keeps running without the button being pressed and subsequently runs the inputloop() infinitely
-        self.menu.add.button("Play", self.set_state("INPUT"))
-        self.menu.add.button("Quit", pygame_menu.events.EXIT)
+        print("Is this even running?!")
+        print(self.state)
         
         # Previous code
         # font = pygame.font.Font(None, 35)
@@ -58,6 +55,9 @@ class Controller:
     
 
     def mainloop(self):
+        
+        print("This is mainloop")
+        print(self.state)
 
         while True:
             if self.state == "START":
@@ -86,21 +86,40 @@ class Controller:
 
         # return sign_info
     
+    
     def startloop(self):
+        
+        print("This is the beginning of the startloop")
+        print(self.state)
+        
+        self.menu = pygame_menu.Menu(
+            "Read your horoscope for today",
+            width=400, 
+            height=300, 
+            theme=pygame_menu.themes.THEME_SOLARIZED, 
+            onclose=pygame_menu.events.EXIT
+        )
+        
+        
+        self.test_menu = pygame_menu.Menu(
+            "TEST MENU",
+            width=400, 
+            height=300, 
+            theme=pygame_menu.themes.THEME_BLUE, 
+            onclose=pygame_menu.events.EXIT
+        )
+        
+        # The method set_state() keeps running without the button being pressed and subsequently runs the inputloop() infinitely
+        # Have to write functions that don't take parameters for pygame-menu
+        # Callbacks - Usually the function you are calling followed by the parameters that will be passed
+        self.menu.add.button("Play", self.set_state, "INPUT")
+        self.menu.add.button("Quit", pygame_menu.events.EXIT)
 
         while self.state == "START":
 
             if self.menu.is_enabled():
-                print(self.state)
-                print("This is the startloop")
-
                 self.menu.update(pygame.event.get())
-                
                 self.menu.draw(self.screen)
-                
-                # if (False):
-                #     self.state = "game"
-                #     print("False statement")
         
             pygame.display.flip()
         
@@ -109,29 +128,48 @@ class Controller:
     def set_state(self, state = "START"):
         self.state = state
         return None
+    
+    def send_input(self):
+        # Previous code
+        # print("checkpoint -2")
+        # controller = Controller()
+        # print("checkpoint -1")
+        # [month, day] = self.get_birthday()
+        # Callback - Passing a function as a parameter
+        month = self.month.get_value()
+        day = int(self.day.get_value())
+        user = User(month, day)
+        user_zodiac = user.find_zodiac_sign() 
+        proxy = Proxy()
+        sign_info = proxy.get_sign_info(user_zodiac)
+        print(sign_info)
+        print("This is the send_input() method")
+        self.state = "OUTPUT"
+        
+        # REMOVE API KEY BEFORE PUSHING
 
     
     def inputloop(self):
-
+        
+        self.menu = pygame_menu.Menu("Enter your birthday", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
+        self.month = self.menu.add.text_input("Month: ", default="")
+        self.day = self.menu.add.text_input("Day: ", default="")
+        
+        self.menu.add.button("Submit", self.send_input) # Send info to user to find zodiac
+        self.menu.add.button("Quit", pygame_menu.events.EXIT)
+        
+        print("Inputloop is working!!")
+        
+        
         while self.state == "INPUT":
-            # for event in pygame.event.get():
-                # if event.type == pygame.MOUSEBUTTONDOWN:
-                #     self.state == "INPUT"
-            print(self.state)
-            print("This is the inputloop")
 
-            self.menu = pygame_menu.Menu("Enter your birthday", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
-            self.month = self.menu.add.text_input("Birth Month (e.g. January, February, etc.): ", default="")
-            self.day = self.menu.add.text_input("Birth Day (e.g. 1, 2, etc.): ", default="")
-            # self.menu.add.button("Return to Start Menu", self.set_state("START"))
-            self.menu.add.button("Quit", pygame_menu.events.EXIT)
-
-            self.menu.update(pygame.event.get())
-            
-            self.menu.draw(self.screen)
+            if self.menu.is_enabled():
+                self.menu.update(pygame.event.get())
+                self.menu.draw(self.screen)
+                print("Menu in eventloop is enabled!!!")
             
             pygame.display.flip()
-
+            
             # month = (input("What's your birthday month (january, february, etc.): "))
             # # testing the entry if it is name of a month
             # month_list = ["january", "february", "march", "april", "may", "june","july", "august", "september", "october", "november", "december"]
@@ -145,11 +183,17 @@ class Controller:
             #     print ("Your input needs to be an intiger betwen 1 and 31.")
             #     day = int(input("What's your birthday day (number between and 31): "))
 
-            return self.month, self.day
+            # return self.month, self.day
 
     
     def outputloop(self):
-        pass
+        
+        self.menu.add.button("Play Again", self.set_state, "INPUT")
+        self.menu.add.button("Quit", pygame_menu.events.EXIT)
+
+        print("This is the outputloop")
+        
+        
         
 
 # For testing mainloop() method within controller.py; when testing only controller.py need to remove src. from the imports

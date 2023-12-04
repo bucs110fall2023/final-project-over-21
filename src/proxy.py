@@ -18,10 +18,11 @@ class Proxy:
         "X-RapidAPI-Host": "horoscope-astrology.p.rapidapi.com"
         }
         response = requests.get(self.url, headers=headers, params=querystring)
-        # facts = response.json()['symbol']
+        facts = response.json()['symbol']
         # print("Your sign's symbol is " + str(facts) + ".")
         print(response.json())
-        # return facts
+        
+        return facts
         
 # Testing API requests with the get_sign_info() method
 # proxy = Proxy()
