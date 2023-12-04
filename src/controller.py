@@ -12,14 +12,19 @@ class Controller:
     '''
     To control the program
     '''
-    def __init__(self, state = "START"):
+    def __init__(self):
         # For testing mainloop() method within controller.py
         pygame.init()
 
         self.screen = pygame.display.set_mode()
         self.screen.fill("pink")
 
-        self.state = state
+        self.state = "START"
+
+        self.menu = pygame_menu.Menu("Read your horoscope for today", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
+        # The method set_state() keeps running without the button being pressed and subsequently runs the inputloop() infinitely
+        self.menu.add.button("Play", self.set_state("INPUT"))
+        self.menu.add.button("Quit", pygame_menu.events.EXIT)
         
         # Previous code
         # font = pygame.font.Font(None, 35)
@@ -82,22 +87,22 @@ class Controller:
         # return sign_info
     
     def startloop(self):
-        
-        self.menu = pygame_menu.Menu("Read your horoscope for today", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
-        # self.menu.add.button("Play", self.set_state("INPUT"))
-        self.menu.add.button("Quit", pygame_menu.events.EXIT)
-        
-        # Do we still need an event loop if we are using pygame-menu? Because it is already listening for a click
-        # while self.state == "START":
-        #     for event in pygame.event.get():
-        #         if event.type == pygame.MOUSEBUTTONDOWN:
-        #             self.state == "INPUT"
 
-        self.menu.update(pygame.event.get())
+        while self.state == "START":
+
+            if self.menu.is_enabled():
+                print(self.state)
+                print("This is the startloop")
+
+                self.menu.update(pygame.event.get())
+                
+                self.menu.draw(self.screen)
+                
+                # if (False):
+                #     self.state = "game"
+                #     print("False statement")
         
-        self.menu.draw(self.screen)
-        
-        pygame.display.flip()
+            pygame.display.flip()
         
     
     # Created this function because Button in pygame-menu needs a Menu, a MenuAction (event), a function (callable), or None
@@ -107,38 +112,46 @@ class Controller:
 
     
     def inputloop(self):
-        print("Input loop")
 
-        self.menu = pygame_menu.Menu("Enter your birthday", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
-        self.month = self.menu.add.text_input("Birthday Month (e.g. January, February, etc.): ", default="January")
-        self.day = self.menu.add.text_input("Birthday Day (e.g. 1, 2, etc.): ", default=1)
-        self.menu.add.button("Return to Start Menu", self.set_state("START"))
+        while self.state == "INPUT":
+            # for event in pygame.event.get():
+                # if event.type == pygame.MOUSEBUTTONDOWN:
+                #     self.state == "INPUT"
+            print(self.state)
+            print("This is the inputloop")
 
-        self.menu.update(pygame.event.get())
-        
-        self.menu.draw(self.screen)
-        
-        pygame.display.flip()
+            self.menu = pygame_menu.Menu("Enter your birthday", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
+            self.month = self.menu.add.text_input("Birth Month (e.g. January, February, etc.): ", default="")
+            self.day = self.menu.add.text_input("Birth Day (e.g. 1, 2, etc.): ", default="")
+            # self.menu.add.button("Return to Start Menu", self.set_state("START"))
+            self.menu.add.button("Quit", pygame_menu.events.EXIT)
 
-        # month = (input("What's your birthday month (january, february, etc.): "))
-        # # testing the entry if it is name of a month
-        # month_list = ["january", "february", "march", "april", "may", "june","july", "august", "september", "october", "november", "december"]
-        # while month not in month_list:
-        #         print("You were supposed to enter the name of one of the 12 months. Try again:")
-        #         month = (input("What's your birthday month (january, february, etc.): "))
-        # day = int(input("What's your birthday day: "))
-        
-        # #day_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ,16, 17, 18, 19, 20, 21, 22, 23,24, 25, 26, 27, 28, 29, 30,31]
-        # while day not in day_list:
-        #     print ("Your input needs to be an intiger betwen 1 and 31.")
-        #     day = int(input("What's your birthday day (number between and 31): "))
+            self.menu.update(pygame.event.get())
+            
+            self.menu.draw(self.screen)
+            
+            pygame.display.flip()
 
-        return self.month, self.day
+            # month = (input("What's your birthday month (january, february, etc.): "))
+            # # testing the entry if it is name of a month
+            # month_list = ["january", "february", "march", "april", "may", "june","july", "august", "september", "october", "november", "december"]
+            # while month not in month_list:
+            #         print("You were supposed to enter the name of one of the 12 months. Try again:")
+            #         month = (input("What's your birthday month (january, february, etc.): "))
+            # day = int(input("What's your birthday day: "))
+            
+            # #day_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ,16, 17, 18, 19, 20, 21, 22, 23,24, 25, 26, 27, 28, 29, 30,31]
+            # while day not in day_list:
+            #     print ("Your input needs to be an intiger betwen 1 and 31.")
+            #     day = int(input("What's your birthday day (number between and 31): "))
 
+            return self.month, self.day
+
+    
     def outputloop(self):
         pass
         
 
 # For testing mainloop() method within controller.py; when testing only controller.py need to remove src. from the imports
-controller = Controller("START")
+controller = Controller()
 controller.mainloop()
