@@ -28,6 +28,8 @@ class User:
         # astro_sign = "foo"
         #print(month)
         
+        print(month)
+        
         if month == 'december':
             astro_sign = 'sagittarius' if (day < 22) else 'capricorn'
             
