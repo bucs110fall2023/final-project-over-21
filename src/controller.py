@@ -1,11 +1,11 @@
 import pygame
 import pygame_menu
-# from src.user import User
-# from src.proxy import Proxy
+from src.user import User
+from src.proxy import Proxy
 
 # For testing mainloop() method within controller.py
-from user import User
-from proxy import Proxy
+# from user import User
+# from proxy import Proxy
 
 
 class Controller:
@@ -36,22 +36,22 @@ class Controller:
         # pygame.display.flip()
 
 
-    def get_birthday(self):
-        month = (input("What's your birthday month (january, february, etc.): "))
-        # testing the entry if it is name of a month
-        month_list = ["january", "february", "march", "april", "may", "june","july", "august", "september", "october", "november", "december"]
-        while month not in month_list:
-                print("You were supposed to enter the name of one of the 12 months. Try again:")
-                month = (input("What's your birthday month (january, february, etc.): "))
-        day = int(input("What's your birthday day: "))
+    # def get_birthday(self):
+    #     month = (input("What's your birthday month (january, february, etc.): "))
+    #     # testing the entry if it is name of a month
+    #     month_list = ["january", "february", "march", "april", "may", "june","july", "august", "september", "october", "november", "december"]
+    #     while month not in month_list:
+    #             print("You were supposed to enter the name of one of the 12 months. Try again:")
+    #             month = (input("What's your birthday month (january, february, etc.): "))
+    #     day = int(input("What's your birthday day: "))
         
-        # #day_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ,16, 17, 18, 19, 20, 21, 22, 23,24, 25, 26, 27, 28, 29, 30,31]
-        # while day not in day_list:
-        #     print ("Your input needs to be an intiger betwen 1 and 31.")
-        #     day = int(input("What's your birthday day (number between and 31): "))
+    #     # #day_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ,16, 17, 18, 19, 20, 21, 22, 23,24, 25, 26, 27, 28, 29, 30,31]
+    #     # while day not in day_list:
+    #     #     print ("Your input needs to be an intiger betwen 1 and 31.")
+    #     #     day = int(input("What's your birthday day (number between and 31): "))
             
-        print(month, day)
-        return month, day
+    #     print(month, day)
+    #     return month, day
     
 
     def mainloop(self):
@@ -99,8 +99,6 @@ class Controller:
             theme=pygame_menu.themes.THEME_SOLARIZED, 
             onclose=pygame_menu.events.EXIT
         )
-        
-        
         self.test_menu = pygame_menu.Menu(
             "TEST MENU",
             width=400, 
@@ -108,7 +106,6 @@ class Controller:
             theme=pygame_menu.themes.THEME_BLUE, 
             onclose=pygame_menu.events.EXIT
         )
-        
         # The method set_state() keeps running without the button being pressed and subsequently runs the inputloop() infinitely
         # Have to write functions that don't take parameters for pygame-menu
         # Callbacks - Usually the function you are calling followed by the parameters that will be passed
@@ -143,6 +140,7 @@ class Controller:
         proxy = Proxy()
         sign_info = proxy.get_sign_info(user_zodiac)
         print(sign_info)
+        #return sign_info
         print("This is the send_input() method")
         self.state = "OUTPUT"
         
@@ -187,14 +185,23 @@ class Controller:
 
     
     def outputloop(self):
-        
-        self.menu.add.button("Play Again", self.set_state, "INPUT")
-        self.menu.add.button("Quit", pygame_menu.events.EXIT)
+        # self.menu = pygame_menu.Menu("Your Zodiac Info", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
+        FORTUNE = "self.sign_info"
+        self.menu.add.label(FORTUNE, max_char = 0, selectable=False)
+        # self.menu.add.button("Play Again", self.set_state, "INPUT")
+        # self.menu.add.button("Quit", pygame_menu.events.EXIT)
 
-        print("This is the outputloop")
+        # print("This is the outputloop")
         
-        
-        
+        # while self.state == "OUTPUT":
+
+        #     if self.menu.is_enabled():
+    
+        #         self.menu.update(pygame.event.get())
+        #         self.menu.draw(self.screen)
+        #         print("You will see output!")
+            
+              #pygame.display.flip()
 
 # For testing mainloop() method within controller.py; when testing only controller.py need to remove src. from the imports
 controller = Controller()
