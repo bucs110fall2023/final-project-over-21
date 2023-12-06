@@ -166,6 +166,7 @@ class Controller:
             if self.menu.is_enabled():
                 self.menu.update(pygame.event.get())
                 self.menu.draw(self.screen)
+                # This line is in an infinite loop until the user clicks Submit!!
                 print("Menu in eventloop is enabled!!!")
             
             pygame.display.flip()
@@ -184,7 +185,7 @@ class Controller:
             #     day = int(input("What's your birthday day (number between and 31): "))
 
             # return self.month, self.day
-
+            
     
     def outputloop(self):
         
@@ -192,6 +193,8 @@ class Controller:
         self.menu.add.button("Quit", pygame_menu.events.EXIT)
 
         print("This is the outputloop")
+        
+        return None
         
         
         
