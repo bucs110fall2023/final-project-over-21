@@ -106,7 +106,7 @@ class Controller:
         
         print("This is the beginning of the startloop")
         print(self.state)
-        
+        print("what is it doing now?")
         self.menu = pygame_menu.Menu(
             "Know Your Weaknesses",
             width=500, 
@@ -158,6 +158,7 @@ class Controller:
         #return sign_info
         print("This is the send_input() method")
         self.state = "OUTPUT"
+        print(self.state)
         
         # REMOVE API KEY BEFORE PUSHING
 
@@ -201,6 +202,7 @@ class Controller:
     # we need to create a variable at the object level
     
     def outputloop(self):
+        print("starting running outpoot loop")
         font = pygame.font.Font(None, 30)
         text_info = "Your weakensses are " + self.sign_info + "."
         #text = font.render(self.sign_info, True, "black")
@@ -222,7 +224,9 @@ class Controller:
             if self.menu.is_enabled():
                 self.menu.update(pygame.event.get())
                 self.menu.draw(self.screen)
-                print("You will see output!")
+                #print("You will see output!")
+                print("You should be now seeing output on screen")
+                print("waiting for the mouse event")
             
             pygame.display.flip()
 
