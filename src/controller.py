@@ -164,6 +164,7 @@ class Controller:
 
     
     def inputloop(self):
+        self.screen.fill("pink")
         
         self.menu = pygame_menu.Menu("Enter your birthday", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
         self.month = self.menu.add.text_input("Month: ", default="")
@@ -202,6 +203,7 @@ class Controller:
     # we need to create a variable at the object level
     
     def outputloop(self):
+        self.screen.fill("pink")
         print("starting running outpoot loop")
         font = pygame.font.Font(None, 30)
         text_info = "Your weakensses are " + self.sign_info + "."
