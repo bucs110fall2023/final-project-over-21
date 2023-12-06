@@ -14,7 +14,7 @@ class Proxy:
         querystring = {"s": users_sign}
 
         headers = {
-        "X-RapidAPI-Key": "",
+        "X-RapidAPI-Key": "fb715419bamshf8dddc119154252p11aee0jsnbc7c2cd9a6c5",
         "X-RapidAPI-Host": "horoscope-astrology.p.rapidapi.com"
         }
         response = requests.get(self.url, headers=headers, params=querystring)

@@ -1,11 +1,11 @@
 import pygame
 import pygame_menu
-from src.user import User
-from src.proxy import Proxy
+# from src.user import User
+# from src.proxy import Proxy
 
 # For testing mainloop() method within controller.py
-# from user import User
-# from proxy import Proxy
+from user import User
+from proxy import Proxy
 
 
 class Controller:
@@ -114,16 +114,7 @@ class Controller:
             theme=pygame_menu.themes.THEME_SOLARIZED, 
             onclose=pygame_menu.events.EXIT
         )
-        # self.test_menu = pygame_menu.Menu(
-        #     "TEST MENU",
-        #     width=400, 
-        #     height=300, 
-        #     theme=pygame_menu.themes.THEME_BLUE, 
-        #     onclose=pygame_menu.events.EXIT
-        # )
-        # The method set_state() keeps running without the button being pressed and subsequently runs the inputloop() infinitely
-        # Have to write functions that don't take parameters for pygame-menu
-        # Callbacks - Usually the function you are calling followed by the parameters that will be passed
+
         self.menu.add.button("Play", self.set_state, "INPUT")
         self.menu.add.button("Quit", pygame_menu.events.EXIT)
 
@@ -201,8 +192,7 @@ class Controller:
             #     day = int(input("What's your birthday day (number between and 31): "))
 
             # return self.month, self.day
-
-    # we need to create a variable at the object level
+            
     
     def outputloop(self):
         self.screen.fill("pink")
@@ -214,7 +204,6 @@ class Controller:
         self.screen.blit(text, (400, 100 ))
     
         pygame.display.flip()
-        #pygame.time.wait(500)
         
         self.menu = pygame_menu.Menu("", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
         # FORTUNE = self.sign_info
@@ -235,5 +224,5 @@ class Controller:
             pygame.display.flip()
 
 # For testing mainloop() method within controller.py; when testing only controller.py need to remove src. from the imports
-# controller = Controller()
-# controller.mainloop()
+controller = Controller()
+controller.mainloop()
