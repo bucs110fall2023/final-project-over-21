@@ -58,7 +58,7 @@ class Controller:
         
         print("This is mainloop")
         print(self.state)
-
+        counter = 0
         while True:
             if self.state == "START":
                 self.startloop()
@@ -66,7 +66,11 @@ class Controller:
                 self.inputloop()
             elif self.state == "OUTPUT":
                 self.outputloop()
-        
+                counter +=1
+                if counter == 3:
+                    break
+                #self.endloop()
+
         # Previous code
         # print("checkpoint -2")
         # controller = Controller()
@@ -86,26 +90,37 @@ class Controller:
 
         # return sign_info
     
-    
+    # def endloop(self):
+    #     self.menu = pygame_menu.Menu("End", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
+    #     self.menu.add.button("Quit", pygame_menu.events.EXIT)
+            
+    #     while self.state == "OUTPUT":
+
+    #         if self.menu.is_enabled():
+    #             self.menu.update(pygame.event.get())
+    #             self.menu.draw(self.screen)
+        
+    #         pygame.display.flip()
+        
     def startloop(self):
         
         print("This is the beginning of the startloop")
         print(self.state)
         
         self.menu = pygame_menu.Menu(
-            "Read your horoscope for today",
-            width=400, 
+            "Know Your Weaknesses",
+            width=500, 
             height=300, 
             theme=pygame_menu.themes.THEME_SOLARIZED, 
             onclose=pygame_menu.events.EXIT
         )
-        self.test_menu = pygame_menu.Menu(
-            "TEST MENU",
-            width=400, 
-            height=300, 
-            theme=pygame_menu.themes.THEME_BLUE, 
-            onclose=pygame_menu.events.EXIT
-        )
+        # self.test_menu = pygame_menu.Menu(
+        #     "TEST MENU",
+        #     width=400, 
+        #     height=300, 
+        #     theme=pygame_menu.themes.THEME_BLUE, 
+        #     onclose=pygame_menu.events.EXIT
+        # )
         # The method set_state() keeps running without the button being pressed and subsequently runs the inputloop() infinitely
         # Have to write functions that don't take parameters for pygame-menu
         # Callbacks - Usually the function you are calling followed by the parameters that will be passed
@@ -138,8 +153,8 @@ class Controller:
         user = User(month, day)
         user_zodiac = user.find_zodiac_sign() 
         proxy = Proxy()
-        sign_info = proxy.get_sign_info(user_zodiac)
-        print(sign_info)
+        self.sign_info = proxy.get_sign_info(user_zodiac)
+        print(self.sign_info)
         #return sign_info
         print("This is the send_input() method")
         self.state = "OUTPUT"
@@ -164,7 +179,7 @@ class Controller:
             if self.menu.is_enabled():
                 self.menu.update(pygame.event.get())
                 self.menu.draw(self.screen)
-                print("Menu in eventloop is enabled!!!")
+                #print("Menu in eventloop is enabled!!!")
             
             pygame.display.flip()
             
@@ -182,27 +197,35 @@ class Controller:
             #     day = int(input("What's your birthday day (number between and 31): "))
 
             # return self.month, self.day
-
+            
+    # we need to create a variable at the object level
     
     def outputloop(self):
-        # self.menu = pygame_menu.Menu("Your Zodiac Info", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
-        FORTUNE = "self.sign_info"
-        self.menu.add.label(FORTUNE, max_char = 0, selectable=False)
-        # self.menu.add.button("Play Again", self.set_state, "INPUT")
-        # self.menu.add.button("Quit", pygame_menu.events.EXIT)
+        font = pygame.font.Font(None, 30)
+        text_info = "Your weakensses are " + self.sign_info + "."
+        #text = font.render(self.sign_info, True, "black")
+        text = font.render(text_info, True, "black")
+        self.screen.blit(text, (400, 100 ))
+    
+        pygame.display.flip()
+        #pygame.time.wait(500)
+        
+        self.menu = pygame_menu.Menu("", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
+        # FORTUNE = self.sign_info
+        # self.menu.add.label(FORTUNE, max_char = 0, selectable=False)
+        self.menu.add.button("Play Again", self.set_state, "INPUT")
+        self.menu.add.button("Quit", pygame_menu.events.EXIT)
 
         # print("This is the outputloop")
         
-        # while self.state == "OUTPUT":
-
-        #     if self.menu.is_enabled():
-    
-        #         self.menu.update(pygame.event.get())
-        #         self.menu.draw(self.screen)
-        #         print("You will see output!")
+        while self.state == "OUTPUT":
+            if self.menu.is_enabled():
+                self.menu.update(pygame.event.get())
+                self.menu.draw(self.screen)
+                print("You will see output!")
             
-              #pygame.display.flip()
+            pygame.display.flip()
 
 # For testing mainloop() method within controller.py; when testing only controller.py need to remove src. from the imports
-controller = Controller()
-controller.mainloop()
+# controller = Controller()
+# controller.mainloop()
