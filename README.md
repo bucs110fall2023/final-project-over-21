@@ -2,7 +2,7 @@
 :warning: Everything between << >> needs to be replaced (remove << >> after replacing)
 
 # Daily Horoscope
-## CS110 Final Project Fall, 2023
+## CS110 Final Project - Fall 2023
 
 ## Team Members
 
@@ -12,7 +12,7 @@ Katarzyna Mazur, Anne Peng
 
 ## Project Description
 
-This is a horoscope fortune teller.  The user enters their birthday and the program will return their fortune for the current day based on their horoscope sign.
+This program shows the user their horoscope for the day based on their birthdate and zodiac sign.
 
 ***    
 
