@@ -29,7 +29,7 @@ class Controller:
         self.screen.fill("pink")
 
         self.state = "START"
-        print(f"This is the init() method of the Controller class and the state should be 'START'. The actual state is {self.state}.")
+        # print(f"This is the init() method of the Controller class and the state should be 'START'. The actual state is {self.state}.")
     
     
     def mainloop(self):
@@ -38,7 +38,7 @@ class Controller:
         Args: None
         Return: None
         '''
-        print(f"This is the mainloop() method of the Controller class and the current state is {self.state}.")
+        # print(f"This is the mainloop() method of the Controller class and the current state is {self.state}.")
 
         while True:
             if self.state == "START":
@@ -55,7 +55,7 @@ class Controller:
         Args: None
         Return: None
         '''
-        print(f"This is the startloop() method of the Controller class and the current state is {self.state}.")
+        # print(f"This is the startloop() method of the Controller class and the current state is {self.state}.")
         
         self.menu = pygame_menu.Menu(
             "Read About Your Zodiac",
@@ -106,7 +106,7 @@ class Controller:
         Args: None
         Return: None
         '''
-        print(f"This is the inputloop() method of the Controller class and the current state is {self.state}.")
+        # print(f"This is the inputloop() method of the Controller class and the current state is {self.state}.")
         
         self.screen.fill("pink")
         
@@ -155,7 +155,7 @@ class Controller:
         Args: None
         Return: None
         '''
-        print(f"This is the outputloop() method of the Controller class and the current state is {self.state}.")
+        # print(f"This is the outputloop() method of the Controller class and the current state is {self.state}.")
         
         self.screen.fill("pink")
         self.display_sign_info()
