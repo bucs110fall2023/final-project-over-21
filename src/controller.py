@@ -161,7 +161,7 @@ class Controller:
         self.month = self.menu.add.text_input("Month: ", default="")
         self.day = self.menu.add.text_input("Day: ", default="")
         
-        self.menu.add.button("Submit", self.send_input) # Send info to user to find zodiac
+        self.menu.add.button("Submit", self.send_input)
         self.menu.add.button("Quit", pygame_menu.events.EXIT)
         
         print("Inputloop is working!!")

@@ -2,29 +2,36 @@ import requests
 
 class Proxy:
     '''
-    Proxy class makes API call for user's sign
+    Sends and receives the API request for the daily horoscope
     '''
     
     def __init__(self):
-        self.url = "https://horoscope-astrology.p.rapidapi.com/sign"
+        '''
+        The constructor (aka special method) that initializes the Proxy object with the API's link
+        Args: None
+        Return: None
+        '''
+        self.url = "https://horoscope-astrology.p.rapidapi.com/horoscope"
         
 
-    def get_sign_info(self, users_sign):
-        #self.z = z
-        querystring = {"s": users_sign}
+    def get_daily_horoscope(self, users_sign):
+        '''
+        Sends a request to the API for the user's daily horoscope
+        Args: String users_sign is the zodiac sign that was calculated in the User class based on the month and day that the user input
+        Return: String daily_horoscope is the user's horoscope for the current day that was requested from the API
+        '''
+        querystring = {"day":"today","sunsign": users_sign}
 
         headers = {
         "X-RapidAPI-Key": "",
         "X-RapidAPI-Host": "horoscope-astrology.p.rapidapi.com"
         }
         response = requests.get(self.url, headers=headers, params=querystring)
-        #facts = response.json()['symbol']
-        facts = response.json()['weaknesses']
-        # print("Your sign's symbol is " + str(facts) + ".")
-        print(response.json())
-        #return response
-        return facts
+        daily_horoscope = response.json()['horoscope']
+        print(daily_horoscope)
         
-# Testing API requests with the get_sign_info() method
+        return daily_horoscope
+        
+# Testing the get_daily_horoscope() method within proxy.py
 # proxy = Proxy()
-# proxy.get_sign_info("cancer")
+# proxy.get_daily_horoscope("cancer")

@@ -1,8 +1,7 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=12803296&assignment_repo_type=AssignmentRepo)
-:warning: Everything between << >> needs to be replaced (remove << >> after replacing)
 
 # Daily Horoscope
-## CS110 Final Project Fall, 2023
+## CS110 Final Project - Fall 2023
 
 ## Team Members
 
@@ -12,7 +11,7 @@ Katarzyna Mazur, Anne Peng
 
 ## Project Description
 
-This is a horoscope fortune teller.  The user enters their birthday and the program will return their fortune for the current day based on their horoscope sign.
+This program shows the user their horoscope for the current day based on their birthdate and zodiac sign.
 
 ***    
 
@@ -34,16 +33,17 @@ This is a horoscope fortune teller.  The user enters their birthday and the prog
 3. Requests to a horoscope API
 4. Displays the user's fortune for the day
 5. Play again button
-6. (Nice to Have) The user can change the date of the fortune
 
 ### Classes
 
- << You should have a list of each of your classes with a description >>
-1. User class
-2. Proxy class
-3. Button class
-4. Controller class
+1. User class - Determines the user's zodiac sign based on the user's birthday
+2. Proxy class - Sends and receives the API request for the horoscope
+3. Controller class - Displays the screen to the user, manages the states of the program, takes the user's input and sends it to the User class, receives the user's zodiac sign from the User class, sends the user's zodiac sign to the Proxy class, receives the user's horoscope for the day from the Proxy class, displays the horoscope to the user
 
 ## ATP
 
 
+## External Resources
+
+1. pygame-menu - Used to create the buttons that change the states in the Controller class https://pygame-menu.readthedocs.io/en/latest/
+2. Program to display Astrological sign or Zodiac sign for given date of birth - Used in the find_zodiac_sign() method in the User class to determine the user's zodiac based on a range of dates https://www.geeksforgeeks.org/program-display-astrological-sign-zodiac-sign-given-date-birth/
