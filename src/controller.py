@@ -1,12 +1,12 @@
 import pygame
 import pygame_menu
 import textwrap
-# from src.user import User
-# from src.proxy import Proxy
+from src.user import User
+from src.proxy import Proxy
 
 # For testing mainloop() method within controller.py
-from user import User
-from proxy import Proxy
+# from user import User
+# from proxy import Proxy
 
 
 class Controller:
@@ -23,7 +23,7 @@ class Controller:
         Return: None
         '''
         # For testing mainloop() method within controller.py
-        pygame.init()
+        # pygame.init()
 
         self.screen = pygame.display.set_mode()
         self.screen.fill("pink")
@@ -176,6 +176,7 @@ class Controller:
                 self.menu.draw(self.screen)
             pygame.display.flip()
 
-# For testing mainloop() method within controller.py; when testing only controller.py need to remove src. from the imports
-controller = Controller()
-controller.mainloop()
+
+# For testing mainloop() method within controller.py; when testing only controller.py, need to remove src from the imports
+# controller = Controller()
+# controller.mainloop()
