@@ -27,8 +27,6 @@ This program shows the user a personality profile based on their birthdate and z
 
 ![final gui](assets/finalgui.jpg)
 
-*** 
-
 
 ## Program Design
 
@@ -40,14 +38,10 @@ This program shows the user a personality profile based on their birthdate and z
 5. Play again button
 
 ### Classes
-
 1. User class - Determines the user's zodiac sign based on the date that was entered
 2. Proxy class - Sends and receives the API request for the zodiac sign personality
 3. Controller class - Displays the screen to the user, manages the states of the program, takes the user's input and sends it to the User class, receives the user's zodiac sign from the User class, sends the user's zodiac sign to the Proxy class, receives the user's personality info from the Proxy class, displays the personality info to the user
-
 ![class diagram](assets/class_diagram.jpg)
-
-*** 
 
 
 ## ATP
@@ -126,21 +120,16 @@ This program shows the user a personality profile based on their birthdate and z
 11. Click the Quit button. (This is the output menu.)
 **Expected Outcome:** On any of the three menus (e.g. start, input, output), the window should close when Quit is clicked.
 
-*** 
-
 
 ## Known Bugs and Incomplete Parts
 The menu overlaps the personality info that is displayed.
 
-*** 
 
 ## References
 
 1. pygame-menu - Used to create the buttons that change the states in the Controller class https://pygame-menu.readthedocs.io/en/latest/
 2. Horoscope Astrology API - https://rapidapi.com/Alejandro99aru/api/horoscope-astrology
 3. Program to display Astrological sign or Zodiac sign for given date of birth - Used in the find_zodiac_sign() method in the User class to determine the user's zodiac based on a range of dates https://www.geeksforgeeks.org/program-display-astrological-sign-zodiac-sign-given-date-birth/
-
-*** 
 
 
 ## Additional Comments
