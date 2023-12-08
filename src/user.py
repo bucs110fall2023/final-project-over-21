@@ -1,84 +1,70 @@
 class User:
     '''
-    The class is to collect user's information
-    and to determine Zodiac sign based on
-    the user's input 
+    Determines the user's zodiac sign based on the user's birthday
     '''
     
-    #def __init__(self):
-        
-    # self.month = (input("What's your birthday month (january, february,.): "))
-    # self.day = int(input("What's your birthday day: "))
-      
-    def __init__(self, month, day):
+    def __init__(self, month="March", day=14):
+        '''
+        The constructor (aka special method) that initializes the month and day of the User object
+        Args: String month and int day are the month and day that was input by the user (presumably their birthday)
+        Return: None
+        '''
         self.day = day
         self.month = month
     
     
     def find_zodiac_sign(self):
         '''
-        Takes the user's birthday to determine their zodiac sign
-        '''
-        
+        Takes the user's input for month and day and calculates their zodiac sign based 
+        on the date ranges for each sign. This method is longer than 10 lines to check
+        the date against all twelve zodiac signs.
+        Args: None
+        Return: String zodiac_sign is the user's zodiac sign based on the month and day they input
+        ''' 
         day = self.day
         month = self.month
         
-        # I will put credit in README later
-        # credit https://www.geeksforgeeks.org/program-display-astrological-sign-zodiac-sign-given-date-birth/
-        # astro_sign = "foo"
-        #print(month)
-        
-        print(month)
-        
         if month == 'december':
-            astro_sign = 'sagittarius' if (day < 22) else 'capricorn'
+            zodiac_sign = 'sagittarius' if (day < 22) else 'capricorn'
             
         elif month == 'january': 
-            astro_sign = 'capricorn' if (day < 20) else 'aquarius'
+            zodiac_sign = 'capricorn' if (day < 20) else 'aquarius'
             
         elif month == 'february': 
-            astro_sign = 'aquarius' if (day < 19) else 'pisces'
+            zodiac_sign = 'aquarius' if (day < 19) else 'pisces'
             
         elif month == 'march': 
-            astro_sign = 'pisces' if (day < 21) else 'aries'
+            zodiac_sign = 'pisces' if (day < 21) else 'aries'
             
         elif month == 'april': 
-            astro_sign = 'aries' if (day < 20) else 'taurus'
+            zodiac_sign = 'aries' if (day < 20) else 'taurus'
             
         elif month == 'may': 
-            astro_sign = 'taurus' if (day < 21) else 'gemini'
+            zodiac_sign = 'taurus' if (day < 21) else 'gemini'
             
         elif month == 'june': 
-            astro_sign = 'gemini' if (day < 21) else 'cancer'
+            zodiac_sign = 'gemini' if (day < 21) else 'cancer'
             
         elif month == 'july': 
-            astro_sign = 'cancer' if (day < 23) else 'leo'
+            zodiac_sign = 'cancer' if (day < 23) else 'leo'
             
         elif month == 'august': 
-            astro_sign = 'leo' if (day < 23) else 'virgo'
+            zodiac_sign = 'leo' if (day < 23) else 'virgo'
             
         elif month == 'september': 
-            astro_sign = 'virgo' if (day < 23) else 'libra'
+            zodiac_sign = 'virgo' if (day < 23) else 'libra'
             
         elif month == 'october': 
-            astro_sign = 'libra' if (day < 23) else 'scorpio'
+            zodiac_sign = 'libra' if (day < 23) else 'scorpio'
             
         elif month == 'november': 
-            astro_sign = 'scorpio' if (day < 22) else 'sagittarius'
-         
-        print("Your zodiac sign is " + astro_sign)
-        return astro_sign
-    
-#user = User()      
-# Driver code  
-#if __name__ == '__main__': 
-    # day = 19
-    # month = "may"
-#    user.find_zodiac_sign()
+            zodiac_sign = 'scorpio' if (day < 22) else 'sagittarius'
+        
+        # print(f"The sign based on the input is {zodiac_sign}.")
+        return zodiac_sign
 
 
-
-# Testing the find_zodiac_sign() method
+# Testing the find_zodiac_sign() method within user.py
 # user = User("january", 1)
 # user.find_zodiac_sign()
 

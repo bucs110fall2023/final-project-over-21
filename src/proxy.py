@@ -2,15 +2,24 @@ import requests
 
 class Proxy:
     '''
-    Proxy class makes API call for user's sign
+    Sends and receives the API request for info about zodiac sign's personality
     '''
     
     def __init__(self):
+        '''
+        The constructor (aka special method) that initializes the Proxy object with the API's link
+        Args: None
+        Return: None
+        '''
         self.url = "https://horoscope-astrology.p.rapidapi.com/sign"
-        
-
-    def get_sign_info(self, users_sign):
-        #self.z = z
+    
+    
+    def get_sign_info(self, users_sign=None):
+        '''
+        Sends a request to the API for the personality of the specified zodiac sign
+        Args: String users_sign is the zodiac sign that was calculated in the User class based on the month and day that the user input
+        Return: String sign_personality is the info about the sign's personality that was requested from the API
+        '''
         querystring = {"s": users_sign}
 
         headers = {
@@ -18,13 +27,13 @@ class Proxy:
         "X-RapidAPI-Host": "horoscope-astrology.p.rapidapi.com"
         }
         response = requests.get(self.url, headers=headers, params=querystring)
-        #facts = response.json()['symbol']
-        facts = response.json()['weaknesses']
-        # print("Your sign's symbol is " + str(facts) + ".")
-        print(response.json())
-        #return response
-        return facts
+        sign_personality = response.json()['nature']
+        # print(f"The sign being sent to the API is {users_sign}.")
+        # print(sign_personality)
         
-# Testing API requests with the get_sign_info() method
+        return sign_personality
+
+       
+# Testing the get_sign_info() method within proxy.py
 # proxy = Proxy()
-# proxy.get_sign_info("cancer")
+# proxy.get_sign_info("taurus")
