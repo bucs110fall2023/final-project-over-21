@@ -1,5 +1,6 @@
 import pygame
 import pygame_menu
+import textwrap
 # from src.user import User
 # from src.proxy import Proxy
 
@@ -10,9 +11,17 @@ from proxy import Proxy
 
 class Controller:
     '''
-    To control the program
+    Displays the GUI, receives input from the user, creates a User object to calculate 
+    the user's zodiac sign, creates a Proxy object to send a request to the API for the 
+    user's horoscope based on their zodiac sign, displays the horoscope to the user
     '''
+    
     def __init__(self):
+        '''
+        The constructor (aka special method) that initializes the Controller object which creates the display and sets the state
+        Args: None
+        Return: None
+        '''
         # For testing mainloop() method within controller.py
         pygame.init()
 
@@ -20,45 +29,17 @@ class Controller:
         self.screen.fill("pink")
 
         self.state = "START"
-        print("Is this even running?!")
-        print(self.state)
-        
-        # Previous code
-        # font = pygame.font.Font(None, 35)
-        # text = font.render("Enter your birthday month, day to display your Zodiac info: ", True, "black")
-        # self.screen.blit(text, (100, 100))
-
-        # start_menu = pygame_menu.Menu("Read your horoscope for today", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
-        # start_menu.add.text_input("Birth Month: ", default="January")
-        # start_menu.add.button("Quit", pygame_menu.events.EXIT)
-        # start_menu.mainloop(self.screen)
-
-        # pygame.display.flip()
-
-
-    # def get_birthday(self):
-    #     month = (input("What's your birthday month (january, february, etc.): "))
-    #     # testing the entry if it is name of a month
-    #     month_list = ["january", "february", "march", "april", "may", "june","july", "august", "september", "october", "november", "december"]
-    #     while month not in month_list:
-    #             print("You were supposed to enter the name of one of the 12 months. Try again:")
-    #             month = (input("What's your birthday month (january, february, etc.): "))
-    #     day = int(input("What's your birthday day: "))
-        
-    #     # #day_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ,16, 17, 18, 19, 20, 21, 22, 23,24, 25, 26, 27, 28, 29, 30,31]
-    #     # while day not in day_list:
-    #     #     print ("Your input needs to be an intiger betwen 1 and 31.")
-    #     #     day = int(input("What's your birthday day (number between and 31): "))
-            
-    #     print(month, day)
-    #     return month, day
+        print(f"This is the init() method of the Controller class and the state should be 'START'. The actual state is {self.state}.")
     
-
+    
     def mainloop(self):
-        
-        print("This is mainloop")
-        print(self.state)
-        counter = 0
+        '''
+        Runs the relevant method for each state
+        Args: None
+        Return: None
+        '''
+        print(f"This is the mainloop() method of the Controller class and the current state is {self.state}.")
+
         while True:
             if self.state == "START":
                 self.startloop()
@@ -66,52 +47,21 @@ class Controller:
                 self.inputloop()
             elif self.state == "OUTPUT":
                 self.outputloop()
-                counter +=1
-                if counter == 3:
-                    break
-                #self.endloop()
-
-        # Previous code
-        # print("checkpoint -2")
-        # controller = Controller()
-        # print("checkpoint -1")
-        # [month, day] = self.get_birthday()
-        # print(month, day)
-        # print("checkpoint 0")
-        # user = User(month, day)
-        # print("checkpoint 1")
-        # user_zodiac = user.find_zodiac_sign() 
-        # print("checkpoint 2")
-        # print(user_zodiac)
-        # print("checkpoint 3")
-        # proxy = Proxy()
-        # sign_info = proxy.get_sign_info(user_zodiac)
-        # print(sign_info)
-
-        # return sign_info
     
-    # def endloop(self):
-    #     self.menu = pygame_menu.Menu("End", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
-    #     self.menu.add.button("Quit", pygame_menu.events.EXIT)
-            
-    #     while self.state == "OUTPUT":
-
-    #         if self.menu.is_enabled():
-    #             self.menu.update(pygame.event.get())
-    #             self.menu.draw(self.screen)
-        
-    #         pygame.display.flip()
-        
+    
     def startloop(self):
+        '''
+        Displays the START state where the user can choose to play or quit the program
+        Args: None
+        Return: None
+        '''
+        print(f"This is the startloop() method of the Controller class and the current state is {self.state}.")
         
-        print("This is the beginning of the startloop")
-        print(self.state)
-        print("what is it doing now?")
         self.menu = pygame_menu.Menu(
-            "Know Your Weaknesses",
+            "Read Your Horoscope",
             width=500, 
             height=300, 
-            theme=pygame_menu.themes.THEME_SOLARIZED, 
+            theme=pygame_menu.themes.THEME_SOLARIZED,
             onclose=pygame_menu.events.EXIT
         )
 
@@ -119,108 +69,111 @@ class Controller:
         self.menu.add.button("Quit", pygame_menu.events.EXIT)
 
         while self.state == "START":
-
             if self.menu.is_enabled():
                 self.menu.update(pygame.event.get())
                 self.menu.draw(self.screen)
-        
             pygame.display.flip()
         
     
-    # Created this function because Button in pygame-menu needs a Menu, a MenuAction (event), a function (callable), or None
-    def set_state(self, state = "START"):
+    def set_state(self, state="START"):
+        '''
+        Changes the state when a button in pygame-menu is clicked
+        Args: String state is the state that will be set when the button is clicked
+        Return: None
+        '''
         self.state = state
-        return None
+    
     
     def send_input(self):
-        # Previous code
-        # print("checkpoint -2")
-        # controller = Controller()
-        # print("checkpoint -1")
-        # [month, day] = self.get_birthday()
-        # Callback - Passing a function as a parameter
+        '''
+        Creates a User object based on the input, runs the method to determine the user's 
+        zodiac sign, creates a Proxy object, sends a request to the API for the daily horoscope
+        Args: None
+        Return: None
+        '''
         month = self.month.get_value()
         day = int(self.day.get_value())
         user = User(month, day)
-        user_zodiac = user.find_zodiac_sign() 
+        self.users_sign = user.find_zodiac_sign() 
         proxy = Proxy()
-        self.sign_info = proxy.get_sign_info(user_zodiac)
-        print(self.sign_info)
-        #return sign_info
-        print("This is the send_input() method")
+        self.daily_horoscope = proxy.get_daily_horoscope(self.users_sign)
         self.state = "OUTPUT"
-        print(self.state)
-        
-        # REMOVE API KEY BEFORE PUSHING
-
+    
     
     def inputloop(self):
+        '''
+        Displays the pygame-menu where the user can input their birthday
+        Args: None
+        Return: None
+        '''
+        print(f"This is the inputloop() method of the Controller class and the current state is {self.state}.")
+        
         self.screen.fill("pink")
         
-        self.menu = pygame_menu.Menu("Enter your birthday", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
+        self.menu = pygame_menu.Menu(
+            "Enter your birthday", 
+            width=500, 
+            height=300, 
+            theme=pygame_menu.themes.THEME_SOLARIZED,
+            onclose=pygame_menu.events.EXIT
+        )
+        
         self.month = self.menu.add.text_input("Month: ", default="")
         self.day = self.menu.add.text_input("Day: ", default="")
-        
         self.menu.add.button("Submit", self.send_input)
         self.menu.add.button("Quit", pygame_menu.events.EXIT)
         
-        print("Inputloop is working!!")
-        
-        
         while self.state == "INPUT":
-
             if self.menu.is_enabled():
                 self.menu.update(pygame.event.get())
                 self.menu.draw(self.screen)
-
-                # This line is in an infinite loop until the user clicks Submit!!
-                print("Menu in eventloop is enabled!!!")
-            
             pygame.display.flip()
-            
-            # month = (input("What's your birthday month (january, february, etc.): "))
-            # # testing the entry if it is name of a month
-            # month_list = ["january", "february", "march", "april", "may", "june","july", "august", "september", "october", "november", "december"]
-            # while month not in month_list:
-            #         print("You were supposed to enter the name of one of the 12 months. Try again:")
-            #         month = (input("What's your birthday month (january, february, etc.): "))
-            # day = int(input("What's your birthday day: "))
-            
-            # #day_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ,16, 17, 18, 19, 20, 21, 22, 23,24, 25, 26, 27, 28, 29, 30,31]
-            # while day not in day_list:
-            #     print ("Your input needs to be an intiger betwen 1 and 31.")
-            #     day = int(input("What's your birthday day (number between and 31): "))
-
-            # return self.month, self.day
-            
+    
+    
+    def display_horoscope(self):
+        '''
+        Takes the response from the API, cuts the string into a list of strings 
+        to wrap the text, renders the text to the user with blit
+        Args: None
+        Return: None
+        '''
+        font = pygame.font.Font(None, 30)
+        horoscope_wrap = textwrap.wrap(self.daily_horoscope, width=70)
+        # print(horoscope_wrap, type(horoscope_wrap))
+             
+        line_y = 200
+        for line in range(len(horoscope_wrap)):
+            horoscope = font.render(horoscope_wrap[line], True, "black")
+            self.screen.blit(horoscope, (400, line_y))
+            line_y = line_y + 30   
+        pygame.display.flip()
+      
     
     def outputloop(self):
-        self.screen.fill("pink")
-        print("starting running outpoot loop")
-        font = pygame.font.Font(None, 30)
-        text_info = "Your weakensses are " + self.sign_info + "."
-        #text = font.render(self.sign_info, True, "black")
-        text = font.render(text_info, True, "black")
-        self.screen.blit(text, (400, 100 ))
-    
-        pygame.display.flip()
+        '''
+        Displays the daily horoscope that was sent through the API request
+        Args: None
+        Return: None
+        '''
+        print(f"This is the outputloop() method of the Controller class and the current state is {self.state}.")
         
-        self.menu = pygame_menu.Menu("", width=400, height=300, theme=pygame_menu.themes.THEME_SOLARIZED)
-        # FORTUNE = self.sign_info
-        # self.menu.add.label(FORTUNE, max_char = 0, selectable=False)
+        self.screen.fill("pink")
+        self.display_horoscope()
+        
+        self.menu = pygame_menu.Menu(
+            "", 
+            width=400, 
+            height=300, 
+            theme=pygame_menu.themes.THEME_SOLARIZED,
+            onclose=pygame_menu.events.EXIT
+        )
         self.menu.add.button("Play Again", self.set_state, "INPUT")
         self.menu.add.button("Quit", pygame_menu.events.EXIT)
 
-        # print("This is the outputloop")
-        
         while self.state == "OUTPUT":
             if self.menu.is_enabled():
                 self.menu.update(pygame.event.get())
                 self.menu.draw(self.screen)
-                #print("You will see output!")
-                print("You should be now seeing output on screen")
-                print("waiting for the mouse event")
-            
             pygame.display.flip()
 
 # For testing mainloop() method within controller.py; when testing only controller.py need to remove src. from the imports

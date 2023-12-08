@@ -15,7 +15,9 @@ class User:
     
     def find_zodiac_sign(self):
         '''
-        Takes the user's input for month and day and calculates their zodiac sign based on the date ranges for each sign. This method is longer than 10 lines to check for all twelve zodiac signs.
+        Takes the user's input for month and day and calculates their zodiac sign based 
+        on the date ranges for each sign. This method is longer than 10 lines to check
+        the date against all twelve zodiac signs.
         Args: None
         Return: String zodiac_sign is the user's zodiac sign based on the month and day they input
         ''' 
@@ -58,6 +60,7 @@ class User:
         elif month == 'november': 
             zodiac_sign = 'scorpio' if (day < 22) else 'sagittarius'
         
+        print(f"The sign based on the input is {zodiac_sign}.")
         return zodiac_sign
 
 
