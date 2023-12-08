@@ -16,7 +16,7 @@ class Proxy:
     
     def get_sign_info(self, users_sign=None):
         '''
-        Sends a request to the API for the personlity of the specified zodiac sign
+        Sends a request to the API for the personality of the specified zodiac sign
         Args: String users_sign is the zodiac sign that was calculated in the User class based on the month and day that the user input
         Return: String sign_personality is the info about the sign's personality that was requested from the API
         '''
