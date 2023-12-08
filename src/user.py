@@ -60,7 +60,7 @@ class User:
         elif month == 'november': 
             zodiac_sign = 'scorpio' if (day < 22) else 'sagittarius'
         
-        print(f"The sign based on the input is {zodiac_sign}.")
+        # print(f"The sign based on the input is {zodiac_sign}.")
         return zodiac_sign
 
 

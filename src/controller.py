@@ -12,8 +12,8 @@ from proxy import Proxy
 class Controller:
     '''
     Displays the GUI, receives input from the user, creates a User object to calculate 
-    the user's zodiac sign, creates a Proxy object to send a request to the API for the 
-    user's horoscope based on their zodiac sign, displays the horoscope to the user
+    the user's zodiac sign, creates a Proxy object to send a request to the API for info 
+    on the user's zodiac sign personality, displays the horoscope to the user
     '''
     
     def __init__(self):
@@ -58,7 +58,7 @@ class Controller:
         print(f"This is the startloop() method of the Controller class and the current state is {self.state}.")
         
         self.menu = pygame_menu.Menu(
-            "Read Your Horoscope",
+            "Read About Your Zodiac",
             width=500, 
             height=300, 
             theme=pygame_menu.themes.THEME_SOLARIZED,
@@ -87,7 +87,7 @@ class Controller:
     def send_input(self):
         '''
         Creates a User object based on the input, runs the method to determine the user's 
-        zodiac sign, creates a Proxy object, sends a request to the API for the daily horoscope
+        zodiac sign, creates a Proxy object, sends a request to the API for the zodiac sign info
         Args: None
         Return: None
         '''
@@ -96,7 +96,7 @@ class Controller:
         user = User(month, day)
         self.users_sign = user.find_zodiac_sign() 
         proxy = Proxy()
-        self.daily_horoscope = proxy.get_daily_horoscope(self.users_sign)
+        self.sign_personality = proxy.get_sign_info(self.users_sign)
         self.state = "OUTPUT"
     
     
@@ -130,7 +130,7 @@ class Controller:
             pygame.display.flip()
     
     
-    def display_horoscope(self):
+    def display_sign_info(self):
         '''
         Takes the response from the API, cuts the string into a list of strings 
         to wrap the text, renders the text to the user with blit
@@ -138,12 +138,12 @@ class Controller:
         Return: None
         '''
         font = pygame.font.Font(None, 30)
-        horoscope_wrap = textwrap.wrap(self.daily_horoscope, width=70)
+        personality_textwrap = textwrap.wrap(self.sign_personality, width=70)
         # print(horoscope_wrap, type(horoscope_wrap))
              
         line_y = 200
-        for line in range(len(horoscope_wrap)):
-            horoscope = font.render(horoscope_wrap[line], True, "black")
+        for line in range(len(personality_textwrap)):
+            horoscope = font.render(personality_textwrap[line], True, "black")
             self.screen.blit(horoscope, (400, line_y))
             line_y = line_y + 30   
         pygame.display.flip()
@@ -151,14 +151,14 @@ class Controller:
     
     def outputloop(self):
         '''
-        Displays the daily horoscope that was sent through the API request
+        Displays the personality info that was sent through the API request
         Args: None
         Return: None
         '''
         print(f"This is the outputloop() method of the Controller class and the current state is {self.state}.")
         
         self.screen.fill("pink")
-        self.display_horoscope()
+        self.display_sign_info()
         
         self.menu = pygame_menu.Menu(
             "", 

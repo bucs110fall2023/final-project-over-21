@@ -11,7 +11,7 @@ Katarzyna Mazur, Anne Peng
 
 ## Project Description
 
-This program shows the user their horoscope for the current day based on their birthdate and zodiac sign.
+This program shows the user a personality profile based on their birthdate and zodiac sign.
 
 ***    
 
@@ -31,14 +31,14 @@ This program shows the user their horoscope for the current day based on their b
 1. Some input method for the user's birthday
 2. Calculation to determine the user's zodiac sign
 3. Requests to a horoscope API
-4. Displays the user's fortune for the day
+4. Displays the user's personlity profile
 5. Play again button
 
 ### Classes
 
-1. User class - Determines the user's zodiac sign based on the user's birthday
-2. Proxy class - Sends and receives the API request for the horoscope
-3. Controller class - Displays the screen to the user, manages the states of the program, takes the user's input and sends it to the User class, receives the user's zodiac sign from the User class, sends the user's zodiac sign to the Proxy class, receives the user's horoscope for the day from the Proxy class, displays the horoscope to the user
+1. User class - Determines the user's zodiac sign based on the date that was entered
+2. Proxy class - Sends and receives the API request for the zodiac sign personality
+3. Controller class - Displays the screen to the user, manages the states of the program, takes the user's input and sends it to the User class, receives the user's zodiac sign from the User class, sends the user's zodiac sign to the Proxy class, receives the user's personality info from the Proxy class, displays the personality info to the user
 
 ## ATP
 
