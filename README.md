@@ -144,7 +144,7 @@ This program shows the user a personality profile based on their birthdate and z
 2. Requests module - Used to send requests to the Horoscope Astrology API https://pypi.org/project/requests/
 3. Horoscope Astrology API - https://rapidapi.com/Alejandro99aru/api/horoscope-astrology
 4. Program to display Astrological sign or Zodiac sign for given date of birth - Used in the find_zodiac_sign() method in the User class to determine the user's zodiac based on a range of dates https://www.geeksforgeeks.org/program-display-astrological-sign-zodiac-sign-given-date-birth/
-
+5. python-dotenv library to hide the API key.
 
 ## Known Bugs
 
