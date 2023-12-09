@@ -141,10 +141,10 @@ class Controller:
         personality_textwrap = textwrap.wrap(self.sign_personality, width=70)
         # print(horoscope_wrap, type(horoscope_wrap))
              
-        line_y = 200
+        line_y = 20
         for line in range(len(personality_textwrap)):
             horoscope = font.render(personality_textwrap[line], True, "black")
-            self.screen.blit(horoscope, (400, line_y))
+            self.screen.blit(horoscope, (20, line_y))
             line_y = line_y + 30   
         pygame.display.flip()
       
@@ -164,6 +164,7 @@ class Controller:
             "", 
             width=400, 
             height=300, 
+            position=(750,350,False),
             theme=pygame_menu.themes.THEME_SOLARIZED,
             onclose=pygame_menu.events.EXIT
         )
