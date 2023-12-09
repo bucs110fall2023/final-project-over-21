@@ -146,6 +146,11 @@ This program shows the user a personality profile based on their birthdate and z
 4. Program to display Astrological sign or Zodiac sign for given date of birth - Used in the find_zodiac_sign() method in the User class to determine the user's zodiac based on a range of dates https://www.geeksforgeeks.org/program-display-astrological-sign-zodiac-sign-given-date-birth/
 
 
+## Known Bugs
+
+The GUI is not pretty... But fixing the visual design would take another several hours and the deadline is in 40 minutes.
+
+
 ## Additional Comments
 
 Our original idea was to display a daily horoscope to the user based on their zodiac sign. In other words, the user would input their birthday, the program would calculate their zodiac sign and send a request to the API for a horoscope for that day. But the API for the daily horoscope keeps showing the same text no matter what the zodiac sign is and no matter the day. This is mentioned in a [discussion of the API from about 3 months ago](https://rapidapi.com/Alejandro99aru/api/horoscope-astrology/discussions/102243). As a result, we had to change the information displayed to the user.
