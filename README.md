@@ -42,7 +42,8 @@ This program shows the user a personality profile based on their birthdate and z
 
 
 ## ATP
-
+To run all tests, please enter the API key in the .env file. The key will be provided to graders by team members. Then run 
+`python3 main.py`.
 ### Test Case 1: Starting the Input Menu
 
 **Test Description:** Verify that the program starts and the user is taken to a new menu.
