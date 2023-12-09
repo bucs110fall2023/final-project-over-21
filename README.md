@@ -85,6 +85,7 @@ This program shows the user a personality profile based on their birthdate and z
 8. Check that the personality profile of the zodiac sign matches the dates for the zodiac.
 
 **Expected Outcome:** The zodiac sign that is shown should match the zodiac sign of the following date ranges.
+
     * Aries (March 21-April 19)
     * Taurus (April 20-May 20)
     * Gemini (May 21-June 20)
