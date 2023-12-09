@@ -1,4 +1,5 @@
 import requests
+import os
 
 class Proxy:
     '''
@@ -23,7 +24,7 @@ class Proxy:
         querystring = {"s": users_sign}
 
         headers = {
-        "X-RapidAPI-Key": "",
+        "X-RapidAPI-Key": os.getenv("API_KEY"),
         "X-RapidAPI-Host": "horoscope-astrology.p.rapidapi.com"
         }
         response = requests.get(self.url, headers=headers, params=querystring)
