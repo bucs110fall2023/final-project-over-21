@@ -7,14 +7,10 @@
 
 Katarzyna Mazur, Anne Peng
 
-***
-
 
 ## Project Description
 
-This program shows the user a personality profile based on their birthdate and zodiac sign.
-
-***    
+This program shows the user a personality profile based on their birthdate and zodiac sign. 
 
 
 ## GUI Design
@@ -47,15 +43,21 @@ This program shows the user a personality profile based on their birthdate and z
 ## ATP
 
 ### Test Case 1: Starting the Input Menu
+
 **Test Description:** Verify that the program starts and the user is taken to a new menu.
+
 **Test Steps:**
 1. Start the program.
 2. Click the Play button.
 3. Verify that a new menu appears.
+
 **Expected Outcome:** When the user clicks "Play", a new menu that asks for their birthday should appear.
 
+
 ### Test Case 2: Responding to Input
+
 **Test Description:** Ensure that the user can input their birthday.
+
 **Test Steps:**
 1. Start the program.
 2. Click the Play button.
@@ -64,10 +66,14 @@ This program shows the user a personality profile based on their birthdate and z
 5. Click the Day field.
 6. Type a number between 1 and 31 (inclusive).
 7. Confirm that what is typed is what appears on screen.
+
 **Expected Outcome:** When an aphanumeric character is pressed on the keyboard, it should appear on screen.
 
+
 ### Test Case 3: Checking the Zodiac Sign
+
 **Test Description:** Confirm that the program displays the correct zodiac sign based on the month and day.
+
 **Test Steps:**
 1. Start the program.
 2. Click the Play button.
@@ -77,22 +83,26 @@ This program shows the user a personality profile based on their birthdate and z
 6. Type a number between 1 and 31 (inclusive).
 7. Click the Submit button.
 8. Check that the personality profile of the zodiac sign matches the dates for the zodiac.
+
 **Expected Outcome:** The zodiac sign that is shown should match the zodiac sign of the following date ranges.
-* Aries (March 21-April 19)
-* Taurus (April 20-May 20)
-* Gemini (May 21-June 20)
-* Cancer (June 21-July 22)
-* Leo (July 23-August 22)
-* Virgo (August 23-September 22)
-* Libra (September 23-October 22)
-* Scorpio (October 23-November 21)
-* Sagittarius (November 22-December 21)
-* Capricorn (December 22-January 19)
-* Aquarius (January 20-February 18)
-* Pisces (February 19-March 20)
+    * Aries (March 21-April 19)
+    * Taurus (April 20-May 20)
+    * Gemini (May 21-June 20)
+    * Cancer (June 21-July 22)
+    * Leo (July 23-August 22)
+    * Virgo (August 23-September 22)
+    * Libra (September 23-October 22)
+    * Scorpio (October 23-November 21)
+    * Sagittarius (November 22-December 21)
+    * Capricorn (December 22-January 19)
+    * Aquarius (January 20-February 18)
+    * Pisces (February 19-March 20)
+
 
 ### Test Case 4: Checking the Personality Info
+
 **Test Description:** Confirms that the program displays a different personality profile for different zodiac signs.
+
 **Test Steps:**
 1. Start the program.
 2. Click the Play button.
@@ -102,10 +112,14 @@ This program shows the user a personality profile based on their birthdate and z
 6. Type a number between 1 and 31 (inclusive).
 7. Click the Submit button.
 8. Check that different personality profiles appear for different zodiac signs.
+
 **Expected Outcome:** When dates that fall into the ranges of different zodiac signs are entered (e.g. March 14 vs July 4), a different personality profile should be displayed.
 
+
 ### Test Case 5: Quitting the Program
+
 **Test Description:** Ensure that the user can quit the program at any moment.
+
 **Test Steps:**
 1. Start the program.
 2. Click the Quit button. (This is the start menu.)
@@ -118,18 +132,16 @@ This program shows the user a personality profile based on their birthdate and z
 9. Click the Day field and type a number between 1 and 31 (inclusive).
 10. Click the Submit button.
 11. Click the Quit button. (This is the output menu.)
+
 **Expected Outcome:** On any of the three menus (e.g. start, input, output), the window should close when Quit is clicked.
-
-
-## Known Bugs and Incomplete Parts
-The menu overlaps the personality info that is displayed - FIXED! 
 
 
 ## References
 
 1. pygame-menu - Used to create the buttons that change the states in the Controller class https://pygame-menu.readthedocs.io/en/latest/
-2. Horoscope Astrology API - https://rapidapi.com/Alejandro99aru/api/horoscope-astrology
-3. Program to display Astrological sign or Zodiac sign for given date of birth - Used in the find_zodiac_sign() method in the User class to determine the user's zodiac based on a range of dates https://www.geeksforgeeks.org/program-display-astrological-sign-zodiac-sign-given-date-birth/
+2. Requests module - Used to send requests to the Horoscope Astrology API https://pypi.org/project/requests/
+3. Horoscope Astrology API - https://rapidapi.com/Alejandro99aru/api/horoscope-astrology
+4. Program to display Astrological sign or Zodiac sign for given date of birth - Used in the find_zodiac_sign() method in the User class to determine the user's zodiac based on a range of dates https://www.geeksforgeeks.org/program-display-astrological-sign-zodiac-sign-given-date-birth/
 
 
 ## Additional Comments

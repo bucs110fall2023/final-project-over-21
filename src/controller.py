@@ -111,7 +111,7 @@ class Controller:
         self.screen.fill("pink")
         
         self.menu = pygame_menu.Menu(
-            "Enter your birthday", 
+            "Enter Your Birthday", 
             width=500, 
             height=300, 
             theme=pygame_menu.themes.THEME_SOLARIZED,
