@@ -37,6 +37,7 @@ This program shows the user a personality profile based on their birthdate and z
 1. User class - Determines the user's zodiac sign based on the date that was entered
 2. Proxy class - Sends and receives the API request for the zodiac sign personality
 3. Controller class - Displays the screen to the user, manages the states of the program, takes the user's input and sends it to the User class, receives the user's zodiac sign from the User class, sends the user's zodiac sign to the Proxy class, receives the user's personality info from the Proxy class, displays the personality info to the user
+
 ![class diagram](assets/class_diagram.jpg)
 
 
@@ -86,18 +87,18 @@ This program shows the user a personality profile based on their birthdate and z
 
 **Expected Outcome:** The zodiac sign that is shown should match the zodiac sign of the following date ranges.
 
-    * Aries (March 21-April 19)
-    * Taurus (April 20-May 20)
-    * Gemini (May 21-June 20)
-    * Cancer (June 21-July 22)
-    * Leo (July 23-August 22)
-    * Virgo (August 23-September 22)
-    * Libra (September 23-October 22)
-    * Scorpio (October 23-November 21)
-    * Sagittarius (November 22-December 21)
-    * Capricorn (December 22-January 19)
-    * Aquarius (January 20-February 18)
-    * Pisces (February 19-March 20)
+* Aries (March 21-April 19)
+* Taurus (April 20-May 20)
+* Gemini (May 21-June 20)
+* Cancer (June 21-July 22)
+* Leo (July 23-August 22)
+* Virgo (August 23-September 22)
+* Libra (September 23-October 22)
+* Scorpio (October 23-November 21)
+* Sagittarius (November 22-December 21)
+* Capricorn (December 22-January 19)
+* Aquarius (January 20-February 18)
+* Pisces (February 19-March 20)
 
 
 ### Test Case 4: Checking the Personality Info
