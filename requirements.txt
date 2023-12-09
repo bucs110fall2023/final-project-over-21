@@ -1,3 +1,4 @@
 pygame
 pygame-menu
 requests
+python-dotenv
