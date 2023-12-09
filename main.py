@@ -1,5 +1,7 @@
 import pygame
 from src.controller import Controller
+from dotenv import load_dotenv
+load_dotenv()
 
 def main():
     pygame.init()
