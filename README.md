@@ -122,7 +122,7 @@ This program shows the user a personality profile based on their birthdate and z
 
 
 ## Known Bugs and Incomplete Parts
-The menu overlaps the personality info that is displayed.
+The menu overlaps the personality info that is displayed - FIXED! 
 
 
 ## References
